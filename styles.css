@@ -44,7 +44,7 @@ a { color: inherit; text-decoration: none; }
 .brand-statement { display: grid; gap: 3px; margin-bottom: 37px; color: var(--forest); }
 .brand-statement strong { font: 700 13px var(--mono); letter-spacing: .2em; }
 .brand-statement span { font: italic 22px/1.25 var(--serif); color: var(--terracotta); }
-.brand-statement .brand-tagline-my { color: var(--forest-soft); font: 500 17px/1.45 'Noto Serif Myanmar', 'Myanmar Text', serif; }
+.brand-statement .brand-tagline-my { display: block; margin-top: 13px; color: var(--forest-soft); font: 500 17px/1.45 'Noto Serif Myanmar', 'Myanmar Text', serif; }
 .eyebrow { color: var(--forest-soft); display: flex; align-items: center; gap: 11px; text-transform: uppercase; letter-spacing: .17em; font: 500 9px var(--mono); margin: 0 0 28px; }
 .eyebrow-line { display: inline-block; width: 28px; height: 1px; background: var(--terracotta); }
 h1, h2, h3, p { margin-top: 0; }
@@ -129,14 +129,15 @@ h1 em, h2 em { font-weight: 500; color: var(--terracotta); }
 .profile-links a { display: inline-flex; align-items: center; gap: 12px; border: 1px solid var(--line); padding: 12px 14px; color: var(--forest); font: 10px var(--mono); transition: background .2s ease, border-color .2s ease, color .2s ease; }
 .profile-links a:hover { background: var(--sage); border-color: var(--sage); color: var(--forest); }
 .profile-links span { font-size: 14px; }
-.profile-socials { display: grid; grid-template-columns: auto 1fr 1fr; align-items: center; gap: 10px; margin-top: 24px; }
+.profile-socials { display: grid; grid-template-columns: auto repeat(3, 1fr); align-items: center; gap: 10px; margin-top: 24px; }
 .social-heading { margin: 0 12px 0 0; color: var(--terracotta); font: 500 10px var(--mono); letter-spacing: .12em; text-transform: uppercase; }
 .profile-social-card { min-height: 58px; display: flex; align-items: center; gap: 10px; padding: 9px 11px; border: 1px solid var(--line); color: var(--forest); transition: background .2s ease, border-color .2s ease, transform .2s ease; }
 .profile-social-card:hover { background: var(--sage-light); border-color: var(--sage); transform: translateY(-2px); }
 .profile-social-icon { width: 28px; height: 28px; flex: 0 0 28px; display: grid; place-items: center; color: var(--terracotta); }
 .profile-social-icon svg { width: 26px; height: 26px; }
 .profile-social-icon svg > path:first-child, .profile-social-icon svg > rect { fill: currentColor; stroke: none; }
-.profile-social-icon .social-line-text, .profile-social-icon .linkedin-mark { fill: none; stroke: var(--ivory); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.profile-social-icon svg > circle { fill: currentColor; stroke: none; }
+.profile-social-icon .social-line-text, .profile-social-icon .linkedin-mark, .profile-social-icon .whatsapp-mark { fill: none; stroke: var(--ivory); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 .profile-social-card small { display: block; color: var(--muted); font: 9px var(--mono); letter-spacing: .08em; }
 .profile-social-card strong { display: block; margin-top: 3px; color: var(--forest); font: 500 12px var(--sans); }
 .profile-social-arrow { margin-left: auto; color: var(--terracotta); font-size: 15px; }
@@ -163,7 +164,8 @@ h1 em, h2 em { font-weight: 500; color: var(--terracotta); }
 .social-icon:hover { background: var(--forest); color: var(--ivory); border-color: var(--forest); transform: translateY(-2px); }
 .social-icon svg { width: 22px; height: 22px; overflow: visible; }
 .social-icon svg > path:first-child, .social-icon svg > rect { fill: currentColor; stroke: none; }
-.social-icon .social-line-text, .social-icon .linkedin-mark { fill: none; stroke: var(--terracotta); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.social-icon svg > circle { fill: currentColor; stroke: none; }
+.social-icon .social-line-text, .social-icon .linkedin-mark, .social-icon .whatsapp-mark { fill: none; stroke: var(--terracotta); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .site-footer { background: var(--forest); color: var(--sage-light); min-height: 92px; padding: 26px max(5.5vw, calc((100vw - 1280px) / 2 + 5.5vw)); display: flex; align-items: center; justify-content: space-between; gap: 20px; }
 .footer-brand strong { color: var(--ivory); font-size: 12px; }
 .footer-brand span, .site-footer p, .back-top { color: rgba(219,231,217,.62); font: 9px var(--mono); }
