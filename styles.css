@@ -146,6 +146,13 @@ h1 em, h2 em { font-weight: 500; color: var(--terracotta); }
 .contact-email { color: var(--ivory); font: italic 23px var(--serif); border-bottom: 1px solid rgba(245,241,232,.65); padding-bottom: 9px; white-space: nowrap; transition: color .2s ease, border-color .2s ease; }
 .contact-email:hover { color: var(--forest); border-color: var(--forest); }
 .contact-email span { font-style: normal; font-family: var(--sans); margin-left: 12px; }
+.contact-actions { display: flex; flex-direction: column; align-items: flex-end; gap: 20px; }
+.social-links { display: flex; gap: 10px; }
+.social-icon { width: 42px; height: 42px; display: grid; place-items: center; color: var(--ivory); border: 1px solid rgba(245,241,232,.65); border-radius: 50%; transition: background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease; }
+.social-icon:hover { background: var(--forest); color: var(--ivory); border-color: var(--forest); transform: translateY(-2px); }
+.social-icon svg { width: 22px; height: 22px; overflow: visible; }
+.social-icon svg > path:first-child, .social-icon svg > rect { fill: currentColor; stroke: none; }
+.social-icon .social-line-text, .social-icon .linkedin-mark { fill: none; stroke: var(--terracotta); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .site-footer { background: var(--forest); color: var(--sage-light); min-height: 92px; padding: 26px max(5.5vw, calc((100vw - 1280px) / 2 + 5.5vw)); display: flex; align-items: center; justify-content: space-between; gap: 20px; }
 .footer-brand strong { color: var(--ivory); font-size: 12px; }
 .footer-brand span, .site-footer p, .back-top { color: rgba(219,231,217,.62); font: 9px var(--mono); }
@@ -187,6 +194,7 @@ html[lang="my"] .portrait-copy { font-family: 'Noto Sans Myanmar', 'Myanmar Text
   .about-portrait { width: min(100%, 440px); }
   .approach { padding-top: 80px; padding-bottom: 85px; }
   .contact-inner { flex-direction: column; align-items: flex-start; padding-top: 65px; padding-bottom: 70px; }
+  .contact-actions { align-items: flex-start; }
   .contact-email { margin-top: 12px; }
 }
 @media (max-width: 570px) {
