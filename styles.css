@@ -64,6 +64,9 @@ h1 em, h2 em { font-weight: 500; color: var(--terracotta); }
 .hero-note { margin-top: 66px; color: var(--muted); font: 9px var(--mono); letter-spacing: .02em; display: flex; align-items: center; gap: 9px; }
 .note-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--terracotta); display: inline-block; }
 .hero-art { min-height: 505px; position: relative; }
+.hero-image { display: flex; align-items: center; justify-content: center; }
+.hero-feature-image { display: block; width: 100%; height: auto; border: 1px solid rgba(32,57,47,.18); box-shadow: 14px 18px 0 rgba(32,57,47,.08); transition: transform .45s ease, box-shadow .45s ease; }
+.hero-feature-image:hover { transform: translateY(-5px); box-shadow: 14px 23px 0 rgba(32,57,47,.1); }
 .art-wash { position: absolute; width: 88%; height: 94%; right: 5%; top: 1%; background: var(--sage-light); border-radius: 49% 51% 45% 55% / 36% 43% 57% 64%; transform: rotate(-8deg); }
 .arch-frame { position: absolute; width: 55%; height: 91%; left: 19%; top: 5%; border: 1px solid var(--forest-soft); border-radius: 50% 50% 0 0; opacity: .68; }
 .sun-disc { position: absolute; width: 100px; height: 100px; left: 38%; top: 14%; background: var(--terracotta); opacity: .86; border-radius: 50%; }
@@ -203,6 +206,7 @@ h1 em, h2 em { font-weight: 500; color: var(--terracotta); }
   }
 
   .hero-art .art-wash { animation: organic-drift 14s ease-in-out infinite; }
+  .hero-image .hero-feature-image { animation: image-breathe 14s ease-in-out infinite; }
   .hero-art .sun-disc { animation: soft-pulse 7s ease-in-out infinite; }
   .hero-art .leaf-one { animation: leaf-sway 8s ease-in-out -1s infinite; }
   .hero-art .leaf-two { animation: leaf-sway 9s ease-in-out -4s infinite reverse; }
@@ -214,6 +218,11 @@ h1 em, h2 em { font-weight: 500; color: var(--terracotta); }
 @keyframes organic-drift {
   0%, 100% { transform: rotate(-8deg) translate3d(0, 0, 0) scale(1); }
   50% { transform: rotate(-5deg) translate3d(-8px, 7px, 0) scale(1.02); }
+}
+
+@keyframes image-breathe {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
 }
 
 @keyframes soft-pulse {
