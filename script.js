@@ -1,21 +1,170 @@
 const menuToggle = document.querySelector('.menu-toggle');
 const siteNav = document.querySelector('.site-nav');
+const languageButtons = document.querySelectorAll('[data-lang]');
+
+const translations = {
+  en: {
+    brandKicker: 'words with conscience',
+    menu: 'Menu',
+    navServices: 'Services',
+    navProfile: 'Consultant profile',
+    navApproach: 'Approach',
+    navContact: 'Begin a conversation',
+    brandTagline: 'Seeing the Sacred Beyond Belief',
+    brandTaglineMy: 'ယုံကြည်မှု၏အလွန်',
+    heroEyebrow: 'Religious content consultancy',
+    heroTitle: 'Thoughtful words<br /><em>for sacred spaces.</em>',
+    heroIntro: 'Helping faith-led organizations share their message with clarity, cultural care, and a voice that feels true to their values.',
+    workWith: 'Work with Dassana',
+    exploreServices: 'Explore services',
+    heroNote: 'Based on attentive listening &amp; grounded practice',
+    quote: 'Let every word make room for meaning.',
+    beliefOne: 'Good religious communication does more than inform.',
+    beliefTwo: 'It creates a place to belong.',
+    topicsEyebrow: 'Fields of focus',
+    topicsIntro: 'Research-led perspective for stories that connect belief, history, and everyday life.',
+    topicBuddhism: 'ဗုဒ္ဓဘာသာ',
+    topicBelief: 'ယုံကြည်မှုနှင့် ရိုးရာထုံးတမ်း',
+    topicSociety: 'လူမှုအဖွဲ့အစည်းနှင့် ယဉ်ကျေးမှု',
+    topicHistory: 'သမိုင်းနှင့် အမွေအနှစ်',
+    topicIdeas: 'အယူအဆများ',
+    servicesEyebrow: 'What Dassana does',
+    servicesTitle: 'Careful thinking.<br /><em>Clear expression.</em>',
+    servicesLede: 'From the first idea to the final edit, we bring structure and sensitivity to the stories your community needs to hear.',
+    serviceOneTitle: 'Content strategy',
+    serviceOneText: 'Find the through-line in your message and build a content plan that serves both your mission and your people.',
+    serviceTwoTitle: 'Editorial care',
+    serviceTwoText: 'Shape sermons, newsletters, campaigns, and web copy so every sentence is warm, precise, and easy to receive.',
+    serviceThreeTitle: 'Voice &amp; values',
+    serviceThreeText: 'Define a language that sounds like you&mdash;rooted in tradition, open to the present, and welcoming to all.',
+    learnMore: 'Learn more',
+    portraitCaption: 'with intention,<br /><em>always</em>',
+    profileEyebrow: 'Consultant profile',
+    profileTitle: 'Scholarship with a<br /><em>wider sense of audience.</em>',
+    profileRole: 'Religious Studies scholar &middot; PhD, Mahidol University',
+    profileIntro: 'Religious Studies scholar with a PhD from Mahidol University, specializing in Theravada Buddhism, Pali epigraphy, Burmese Buddhism, and material religion in Southeast Asia.',
+    profileParagraphOne: 'Research interests centre on the intersections of texts, inscriptions, religious practices, social history, and Buddhist institutions, with particular emphasis on premodern Myanmar.',
+    profileParagraphTwo: 'Experienced in teaching and postgraduate research mentoring, with publications in Scopus-indexed and peer-reviewed academic journals and active participation in international academic conferences.',
+    profileParagraphThree: 'Research and teaching draw on interdisciplinary approaches across Religious Studies, Buddhist Studies, epigraphy, textual studies, and social history, with a commitment to research-led, student-centred learning and critical engagement with religious and historical sources.',
+    academiaLink: 'Academia.edu profile',
+    orcidLink: 'ORCID research record',
+    profileCta: 'Discuss a collaboration',
+    approachEyebrow: 'A gentle process',
+    approachTitle: 'Make room for<br /><em>the right words.</em>',
+    stepOneTitle: 'Listen deeply',
+    stepOneText: 'We begin with the why&mdash;your community, your context, and the heart behind the work.',
+    stepTwoTitle: 'Shape the message',
+    stepTwoText: 'We find the clearest, most human way to carry your meaning forward.',
+    stepThreeTitle: 'Share with confidence',
+    stepThreeText: 'You leave with language that feels grounded, generous, and ready to meet the world.',
+    contactEyebrow: 'Let&rsquo;s begin',
+    contactTitle: 'A meaningful message<br /><em>starts here.</em>',
+    contactCopy: 'Tell me a little about what you are working on. I&rsquo;ll get back to you with a thoughtful next step.',
+    footerLine: 'www.dassana.org &middot; Religious content consultancy',
+    backTop: 'Back to top &uarr;'
+  },
+  my: {
+    brandKicker: 'သိက္ခာရှိသော စကားလုံးများ',
+    menu: 'မီနူး',
+    navServices: 'ဝန်ဆောင်မှုများ',
+    navProfile: 'အကြံပေးပညာရှင်အကြောင်း',
+    navApproach: 'လုပ်ငန်းဆောင်ရွက်ပုံ',
+    navContact: 'ဆွေးနွေးရန် စတင်မည်',
+    brandTagline: 'မြင့်မြတ်မှုကို ယုံကြည်ချက်ထက် ကျော်လွန်၍ မြင်ခြင်း',
+    brandTaglineMy: 'ယုံကြည်မှု၏အလွန်',
+    heroEyebrow: 'ဘာသာရေးအကြောင်းအရာ အကြံပေးဝန်ဆောင်မှု',
+    heroTitle: 'မြင့်မြတ်သောနေရာများအတွက်<br /><em>အဓိပ္ပါယ်ရှိသော စကားလုံးများ။</em>',
+    heroIntro: 'ယုံကြည်ခြင်းနှင့် ဘာသာရေးဆိုင်ရာ အဖွဲ့အစည်းများ၏ သတင်းစကားများကို ရှင်းလင်းမှု၊ ယဉ်ကျေးမှုကို လေးစားမှုနှင့် မိမိတို့၏တန်ဖိုးများနှင့် ကိုက်ညီသော အသံဖြင့် မျှဝေနိုင်ရန် ကူညီပေးပါသည်။',
+    workWith: 'Dassana နှင့် ပူးပေါင်းလုပ်ဆောင်ရန်',
+    exploreServices: 'ဝန်ဆောင်မှုများကို ကြည့်ရှုရန်',
+    heroNote: 'ဂရုတစိုက်နားထောင်မှုနှင့် အခြေခံကျသော လက်တွေ့ကျင့်သုံးမှုအပေါ် အခြေခံသည်',
+    quote: 'စကားလုံးတိုင်းတွင် အဓိပ္ပါယ်အတွက် နေရာရှိပါစေ။',
+    beliefOne: 'ကောင်းမွန်သော ဘာသာရေးဆိုင်ရာ ဆက်သွယ်ပြောဆိုမှုသည် သတင်းပေးရုံထက် ပိုမိုပါသည်။',
+    beliefTwo: 'မိမိနှင့် သက်ဆိုင်သည်ဟု ခံစားရမည့် နေရာတစ်ခုကို ဖန်တီးပေးပါသည်။',
+    topicsEyebrow: 'အာရုံစိုက်လေ့လာရာ နယ်ပယ်များ',
+    topicsIntro: 'ယုံကြည်မှု၊ သမိုင်းနှင့် နေ့စဉ်ဘဝတို့ကို ဆက်စပ်ပေးသည့် အကြောင်းအရာများအတွက် သုတေသနအခြေပြု အမြင်။',
+    topicBuddhism: 'ဗုဒ္ဓဘာသာ',
+    topicBelief: 'ယုံကြည်မှုနှင့် ရိုးရာထုံးတမ်း',
+    topicSociety: 'လူမှုအဖွဲ့အစည်းနှင့် ယဉ်ကျေးမှု',
+    topicHistory: 'သမိုင်းနှင့် အမွေအနှစ်',
+    topicIdeas: 'အယူအဆများ',
+    servicesEyebrow: 'Dassana လုပ်ဆောင်ပေးသည်များ',
+    servicesTitle: 'ဂရုတစိုက် စဉ်းစားခြင်း။<br /><em>ရှင်းလင်းသော ဖော်ပြချက်။</em>',
+    servicesLede: 'ပထမဆုံး အကြံဉာဏ်မှ နောက်ဆုံးတည်းဖြတ်မှုအထိ သင့်လူမှုအသိုင်းအဝိုင်း ကြားသိရန်လိုအပ်သော အကြောင်းအရာများအတွက် ဖွဲ့စည်းပုံနှင့် နူးညံ့သိမ်မွေ့မှုကို ပေါင်းစပ်ပေးပါသည်။',
+    serviceOneTitle: 'အကြောင်းအရာ မဟာဗျူဟာ',
+    serviceOneText: 'သင့်သတင်းစကား၏ အဓိကအကြောင်းရင်းကို ရှာဖွေပြီး သင့်ရည်ရွယ်ချက်နှင့် လူထုနှစ်ဖက်စလုံးကို အကျိုးပြုမည့် အကြောင်းအရာအစီအစဉ်ကို တည်ဆောက်ပေးပါသည်။',
+    serviceTwoTitle: 'အယ်ဒီတာ့အာရုံစိုက်မှု',
+    serviceTwoText: 'တရားဟောချက်များ၊ သတင်းလွှာများ၊ လှုပ်ရှားမှုများနှင့် ဝက်ဘ်စာသားများကို နွေးထွေး၊ တိကျပြီး ဖတ်ရှုရလွယ်ကူအောင် ပုံဖော်ပေးပါသည်။',
+    serviceThreeTitle: 'အသံနှင့် တန်ဖိုးများ',
+    serviceThreeText: 'ရိုးရာတွင် အမြစ်တွယ်ပြီး ယနေ့ခေတ်ကို ဖွင့်လှစ်လက်ခံကာ လူတိုင်းအတွက် ကြိုဆိုမှုရှိသော သင့်ကိုယ်ပိုင်ဘာသာစကားကို သတ်မှတ်ပေးပါသည်။',
+    learnMore: 'ပိုမိုလေ့လာရန်',
+    portraitCaption: 'ရည်ရွယ်ချက်ဖြင့်၊<br /><em>အမြဲတမ်း</em>',
+    profileEyebrow: 'အကြံပေးပညာရှင်အကြောင်း',
+    profileTitle: 'ပညာရပ်နှင့်<br /><em>ကျယ်ပြန့်သော ပရိသတ်အမြင်။</em>',
+    profileRole: 'ဘာသာရေးလေ့လာမှု ပညာရှင် &middot; မဟီဒေါလ်တက္ကသိုလ် PhD',
+    profileIntro: 'မဟီဒေါလ်တက္ကသိုလ်မှ PhD ဘွဲ့ရ Religious Studies ပညာရှင်ဖြစ်ပြီး ထေရဝါဒဗုဒ္ဓဘာသာ၊ ပါဠိကျောက်စာပညာ၊ မြန်မာဗုဒ္ဓဘာသာနှင့် အရှေ့တောင်အာရှရှိ ရုပ်ဝတ္ထုဘာသာရေးလေ့လာမှုတို့ကို အထူးပြုလေ့လာပါသည်။',
+    profileParagraphOne: 'လေ့လာသုတေသနစိတ်ဝင်စားမှုများမှာ စာပေများ၊ ကျောက်စာများ၊ ဘာသာရေးအလေ့အကျင့်များ၊ လူမှုသမိုင်းနှင့် ဗုဒ္ဓဘာသာအဖွဲ့အစည်းများ ဆုံမှတ်ရာများဖြစ်ပြီး အထူးသဖြင့် ခေတ်မီမတိုင်မီ မြန်မာနိုင်ငံကို အာရုံစိုက်ပါသည်။',
+    profileParagraphTwo: 'သင်ကြားရေးနှင့် ဘွဲ့လွန်သုတေသန လမ်းညွှန်မှုအတွေ့အကြုံရှိပြီး Scopus တွင် အညွှန်းတင်ထားသော နှင့် peer-reviewed ပညာရပ်ဆိုင်ရာ ဂျာနယ်များတွင် ထုတ်ဝေမှုများ၊ နိုင်ငံတကာ ပညာရပ်ဆိုင်ရာ အစည်းအဝေးများတွင် တက်ကြွစွာ ပါဝင်မှုများ ရှိပါသည်။',
+    profileParagraphThree: 'သုတေသနနှင့် သင်ကြားရေးတွင် Religious Studies၊ Buddhist Studies၊ epigraphy၊ textual studies နှင့် social history တို့၏ အပြန်အလှန် ပေါင်းစပ်နည်းလမ်းများကို အသုံးပြုကာ သုတေသနအခြေပြု၊ ကျောင်းသားဗဟိုပြု သင်ယူမှုနှင့် ဘာသာရေးနှင့် သမိုင်းဆိုင်ရာ ရင်းမြစ်များကို ဝေဖန်စွာ လေ့လာမှုအပေါ် အလေးထားပါသည်။',
+    academiaLink: 'Academia.edu ပရိုဖိုင်',
+    orcidLink: 'ORCID သုတေသနမှတ်တမ်း',
+    profileCta: 'ပူးပေါင်းဆောင်ရွက်ရန် ဆွေးနွေးမည်',
+    approachEyebrow: 'နူးညံ့သော လုပ်ငန်းစဉ်',
+    approachTitle: 'မှန်ကန်သော စကားလုံးများအတွက်<br /><em>နေရာဖန်တီးပါ။</em>',
+    stepOneTitle: 'နက်နက်ရှိုင်းရှိုင်း နားထောင်ခြင်း',
+    stepOneText: 'သင့်လူမှုအသိုင်းအဝိုင်း၊ သင့်အခြေအနေနှင့် အလုပ်နောက်ကွယ်မှ အနှစ်သာရ—ဘာကြောင့် လုပ်ဆောင်ရသည်ကို ဦးစွာနားထောင်ပါသည်။',
+    stepTwoTitle: 'သတင်းစကားကို ပုံဖော်ခြင်း',
+    stepTwoText: 'သင့်အဓိပ္ပါယ်ကို ရှေ့ဆက်သယ်ဆောင်နိုင်မည့် အရှင်းလင်းဆုံးနှင့် လူသားဆန်ဆုံး နည်းလမ်းကို ရှာဖွေပါသည်။',
+    stepThreeTitle: 'ယုံကြည်မှုဖြင့် မျှဝေခြင်း',
+    stepThreeText: 'အခြေခံကျ၊ ရက်ရောပြီး ကမ္ဘာနှင့် တွေ့ဆုံရန် အသင့်ဖြစ်သော ဘာသာစကားကို ရရှိစေပါသည်။',
+    contactEyebrow: 'စတင်ကြပါစို့',
+    contactTitle: 'အဓိပ္ပါယ်ရှိသော သတင်းစကား<br /><em>ဤနေရာမှ စတင်ပါသည်။</em>',
+    contactCopy: 'သင်လုပ်ဆောင်နေသည့် အကြောင်းအရာကို အနည်းငယ် မျှဝေပါ။ ထို့နောက် အဓိပ္ပါယ်ရှိသည့် နောက်တစ်ဆင့်ကို ပြန်လည်ဆက်သွယ်ပေးပါမည်။',
+    footerLine: 'www.dassana.org &middot; ဘာသာရေးအကြောင်းအရာ အကြံပေးဝန်ဆောင်မှု',
+    backTop: 'အပေါ်သို့ ပြန်သွားရန် &uarr;'
+  }
+};
+
+let currentLanguage = localStorage.getItem('dassana-language') === 'my' ? 'my' : 'en';
+
+function setLanguage(language) {
+  currentLanguage = language === 'my' ? 'my' : 'en';
+  document.documentElement.lang = currentLanguage;
+  document.querySelectorAll('[data-i18n]').forEach((element) => {
+    const key = element.dataset.i18n;
+    if (translations[currentLanguage][key]) element.innerHTML = translations[currentLanguage][key];
+  });
+  languageButtons.forEach((button) => {
+    const active = button.dataset.lang === currentLanguage;
+    button.classList.toggle('is-active', active);
+    button.setAttribute('aria-pressed', String(active));
+  });
+  if (menuToggle && !siteNav.classList.contains('is-open')) {
+    menuToggle.textContent = translations[currentLanguage].menu;
+  }
+  localStorage.setItem('dassana-language', currentLanguage);
+}
+
+languageButtons.forEach((button) => {
+  button.addEventListener('click', () => setLanguage(button.dataset.lang));
+});
 
 if (menuToggle && siteNav) {
   menuToggle.addEventListener('click', () => {
     const isOpen = siteNav.classList.toggle('is-open');
     menuToggle.setAttribute('aria-expanded', String(isOpen));
-    menuToggle.textContent = isOpen ? 'Close' : 'Menu';
+    menuToggle.textContent = isOpen ? (currentLanguage === 'my' ? 'ပိတ်ရန်' : 'Close') : translations[currentLanguage].menu;
   });
 
   siteNav.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', () => {
       siteNav.classList.remove('is-open');
       menuToggle.setAttribute('aria-expanded', 'false');
-      menuToggle.textContent = 'Menu';
+      menuToggle.textContent = translations[currentLanguage].menu;
     });
   });
 }
 
 document.getElementById('year').textContent = new Date().getFullYear();
+setLanguage(currentLanguage);
 
