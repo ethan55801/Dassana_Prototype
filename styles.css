@@ -108,8 +108,8 @@ h1 em, h2 em { font-weight: 500; color: var(--terracotta); }
 .service-card p { color: var(--forest-soft); font-size: 13px; line-height: 1.65; max-width: 290px; margin-bottom: 25px; }
 .card-link { margin-top: auto; font: 10px var(--mono); color: var(--forest); text-transform: uppercase; letter-spacing: .08em; transition: color .2s ease; }
 .card-link span { font-size: 14px; margin-left: 8px; }
-.about { display: grid; grid-template-columns: .9fr 1.1fr; gap: 11vw; align-items: center; background: var(--paper); padding-top: 110px; padding-bottom: 115px; max-width: none; padding-left: max(5.5vw, calc((100vw - 1280px) / 2 + 5.5vw)); padding-right: max(5.5vw, calc((100vw - 1280px) / 2 + 5.5vw)); }
-.about-portrait { width: min(100%, 500px); aspect-ratio: 1 / 1.12; background: var(--sage-light); position: relative; overflow: hidden; border-radius: 50%; border: 8px solid var(--paper); box-shadow: 0 0 0 1px var(--sage), 14px 18px 0 rgba(32,57,47,.08); }
+.about { display: grid; grid-template-columns: minmax(500px, .98fr) minmax(0, 1.02fr); gap: 7vw; align-items: center; background: var(--paper); padding-top: 110px; padding-bottom: 115px; max-width: none; padding-left: max(5.5vw, calc((100vw - 1280px) / 2 + 5.5vw)); padding-right: max(5.5vw, calc((100vw - 1280px) / 2 + 5.5vw)); }
+.about-portrait { width: min(100%, 560px); aspect-ratio: 1 / 1.08; background: var(--sage-light); position: relative; overflow: hidden; border-radius: 50%; border: 8px solid var(--paper); box-shadow: 0 0 0 1px var(--sage), 14px 18px 0 rgba(32,57,47,.08); }
 .portrait-shape { position: absolute; width: 60%; height: 79%; left: 20%; bottom: -4%; border: 1px solid var(--forest-soft); border-radius: 50% 50% 0 0; }
 .portrait-sun { position: absolute; width: 38%; aspect-ratio: 1; background: var(--terracotta); border-radius: 50%; left: 31%; top: 14%; opacity: .88; }
 .portrait-stem { position: absolute; height: 55%; border-left: 1px solid var(--forest-soft); left: 50%; top: 28%; transform: rotate(24deg); }
