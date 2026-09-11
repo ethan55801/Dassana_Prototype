@@ -23,8 +23,11 @@ a { color: inherit; text-decoration: none; }
 .site-shell { overflow: hidden; }
 .site-header { display: flex; align-items: center; justify-content: space-between; max-width: 1280px; margin: 0 auto; padding: 28px 5.5vw; position: relative; z-index: 5; }
 .brand { display: flex; gap: 11px; align-items: center; }
-.brand-mark { width: 35px; height: 35px; display: block; color: var(--forest); }
+.brand-mark { width: 48px; height: 48px; display: block; color: var(--forest); }
 .brand-mark svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.15; }
+.logo-mark { position: relative; overflow: hidden; border: 1px solid var(--forest); border-radius: 50%; background: var(--paper); box-shadow: 5px 6px 0 rgba(32,57,47,.1); isolation: isolate; }
+.logo-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: scale(2.55); transform-origin: center 17%; filter: saturate(.9) contrast(1.03); }
+.logo-d { position: absolute; right: 2px; bottom: 2px; width: 18px; height: 18px; display: grid; place-items: center; border-radius: 50%; background: var(--forest); color: var(--ivory); font: 700 12px/1 var(--serif); box-shadow: 0 0 0 2px var(--paper); }
 .brand strong, .footer-brand strong { display: block; letter-spacing: .18em; font-size: 14px; font-weight: 700; }
 .brand small { display: block; color: var(--muted); font-family: var(--mono); font-size: 8px; letter-spacing: .04em; margin-top: 4px; }
 .header-actions { display: flex; align-items: center; gap: 20px; order: 3; }
@@ -106,7 +109,7 @@ h1 em, h2 em { font-weight: 500; color: var(--terracotta); }
 .card-link { margin-top: auto; font: 10px var(--mono); color: var(--forest); text-transform: uppercase; letter-spacing: .08em; transition: color .2s ease; }
 .card-link span { font-size: 14px; margin-left: 8px; }
 .about { display: grid; grid-template-columns: .9fr 1.1fr; gap: 11vw; align-items: center; background: var(--paper); padding-top: 110px; padding-bottom: 115px; max-width: none; padding-left: max(5.5vw, calc((100vw - 1280px) / 2 + 5.5vw)); padding-right: max(5.5vw, calc((100vw - 1280px) / 2 + 5.5vw)); }
-.about-portrait { width: min(100%, 425px); aspect-ratio: 1 / 1.16; background: var(--sage-light); position: relative; overflow: hidden; border-radius: 50%; border: 8px solid var(--paper); box-shadow: 0 0 0 1px var(--sage), 14px 18px 0 rgba(32,57,47,.08); }
+.about-portrait { width: min(100%, 500px); aspect-ratio: 1 / 1.12; background: var(--sage-light); position: relative; overflow: hidden; border-radius: 50%; border: 8px solid var(--paper); box-shadow: 0 0 0 1px var(--sage), 14px 18px 0 rgba(32,57,47,.08); }
 .portrait-shape { position: absolute; width: 60%; height: 79%; left: 20%; bottom: -4%; border: 1px solid var(--forest-soft); border-radius: 50% 50% 0 0; }
 .portrait-sun { position: absolute; width: 38%; aspect-ratio: 1; background: var(--terracotta); border-radius: 50%; left: 31%; top: 14%; opacity: .88; }
 .portrait-stem { position: absolute; height: 55%; border-left: 1px solid var(--forest-soft); left: 50%; top: 28%; transform: rotate(24deg); }
@@ -114,6 +117,7 @@ h1 em, h2 em { font-weight: 500; color: var(--terracotta); }
 .portrait-copy em { color: var(--terracotta); font: italic 18px var(--serif); }
 .profile-photo-frame { background: linear-gradient(145deg, var(--sage-light), var(--sage)); isolation: isolate; }
 .profile-photo-frame .portrait-shape, .profile-photo-frame .portrait-sun, .profile-photo-frame .portrait-stem { z-index: 0; }
+.profile-photo-frame .portrait-sun { display: none; }
 .profile-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; z-index: 2; border-radius: 50%; }
 .photo-fallback { position: absolute; inset: 0; z-index: 1; display: grid; place-content: center; justify-items: center; gap: 13px; color: var(--forest); text-align: center; }
 .photo-fallback strong { font: 500 clamp(58px, 7vw, 92px)/.85 var(--serif); letter-spacing: -.08em; }
@@ -206,7 +210,7 @@ html[lang="my"] .profile-social-card strong { font-family: 'Noto Sans Myanmar', 
   .topic-item:nth-child(n+3) { border-top: 1px solid var(--line); }
   .topic-item:not(:first-child) { padding-left: 18px; }
   .about { padding-top: 78px; padding-bottom: 80px; }
-  .about-portrait { width: min(100%, 440px); }
+  .about-portrait { width: min(100%, 480px); }
   .profile-socials { grid-template-columns: 1fr 1fr; }
   .social-heading { grid-column: 1 / -1; }
   .approach { padding-top: 80px; padding-bottom: 85px; }
