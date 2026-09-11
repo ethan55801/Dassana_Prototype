@@ -234,6 +234,7 @@ h1 em, h2 em { font-weight: 500; color: var(--terracotta); }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
 
 html[lang="my"] body { font-family: 'Noto Sans Myanmar', 'Myanmar Text', var(--sans); }
