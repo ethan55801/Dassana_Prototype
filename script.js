@@ -6,6 +6,7 @@ const translations = {
   en: {
     brandKicker: 'words with conscience',
     menu: 'Menu',
+    menuClose: 'Close',
     navServices: 'Services',
     navLens: 'Our lens',
     navProfile: 'Consultant profile',
@@ -81,6 +82,7 @@ const translations = {
   my: {
     brandKicker: 'သိက္ခာရှိသော စကားလုံးများ',
     menu: 'မီနူး',
+    menuClose: 'ပိတ်ရန်',
     navServices: 'ဝန်ဆောင်မှုများ',
     navLens: 'ကျွန်ုပ်တို့၏အမြင်',
     navProfile: 'အကြံပေးပညာရှင်အကြောင်း',
@@ -152,13 +154,90 @@ const translations = {
     contactCopy: 'သင်လုပ်ဆောင်နေသည့် အကြောင်းအရာကို အနည်းငယ် မျှဝေပါ။ ထို့နောက် အဓိပ္ပါယ်ရှိသည့် နောက်တစ်ဆင့်ကို ပြန်လည်ဆက်သွယ်ပေးပါမည်။',
     footerLine: 'www.dassana.org &middot; သုတေသနနှင့် အကြောင်းအရာ အကြံပေးဝန်ဆောင်မှု',
     backTop: 'အပေါ်သို့ ပြန်သွားရန် &uarr;'
+  },
+  pi: {
+    brandKicker: 'saddhāsampannāni vacanāni',
+    menu: 'Niddesa',
+    menuClose: 'Pidahituṃ',
+    navServices: 'Kiccāni',
+    navLens: 'Amhākaṃ dassanaṃ',
+    navProfile: 'Sallahadātussa paricayo',
+    navApproach: 'Kamma-paddhati',
+    navContact: 'Sambhāsanaṃ ārabhāma',
+    brandTagline: 'Saddhāya pāraṃ pavittaṃ passati',
+    brandTaglineMy: 'Saddhāya pāraṃ pavittaṃ passati',
+    heroEyebrow: 'Pariyesanā ca atthasandesa-sallahadānañca',
+    heroTitle: 'Atthayuttāni vacanāni<br /><em>pavittānaṃ ṭhānānaṃ atthāya.</em>',
+    heroIntro: 'Pavittadhamme, saṃskāre, itihāse ca kathentānaṃ saṃghānaṃ, paṇḍitānaṃ, samājānañca pariyesanāya patiṭṭhitaṃ nayaṃ lekhanañca dassāma.',
+    workWith: 'Dassenaṃ saha samāgaccha',
+    exploreServices: 'Kiccāni olokehi',
+    heroNote: 'Sādhu-savanena patiṭṭhitaṃ, yathābhūta-payogena ca',
+    quote: 'Sabbavacanaṃ atthassa okāsaṃ karotu.',
+    beliefOne: 'Sundaraṃ dhammakathanaṃ kevalaṃ na pakāseti.',
+    beliefTwo: 'Taṃ saṃvasituṃ okāsaṃ karoti.',
+    lensEyebrow: 'Vitthataṃ dassanaṃ',
+    lensTitle: 'Sabbesaṃ<br /><em>atthayuttānaṃ dassanānaṃ okāso hotu.</em>',
+    lensLede: 'Dassanaṃ saṃghānaṃ, paṇḍitānañca samājānañca dhammavisaye garunā kathayituṃ sahāyaṃ karoti—saddhaṃ ekadassanaṃ viya na karonto.',
+    lensOneTitle: 'Paṭhamaṃ garukāro',
+    lensOneText: 'Atthassa, paramparāya, manussānañca anubhavaṃ sutvā pacchā sandesaṃ rūpema.',
+    lensTwoTitle: 'Gambhīratā ca pasādo ca',
+    lensTwoText: 'Pariyesanāya patiṭṭhitaṃ vacanaṃ gambhīraṃ atthaṃ suviññeyyaṃ karoti, tassa sūkhamatthaṃ na vināseti.',
+    lensThreeTitle: 'Pasādanīyā vāṇī',
+    lensThreeText: 'Sādhu-racitaṃ atthasandesaṃ samājānaṃ, yuvānaṃ, paramparānañca antare sambandhaṃ karoti.',
+    topicsEyebrow: 'Ārammaṇāni',
+    topicsIntro: 'Saddhāya, itihāsassa, dainandinajīvitassa ca sambandhe kathāsu pariyesanāya patiṭṭhitaṃ dassanaṃ.',
+    topicBuddhism: 'Buddhadhammo',
+    topicBelief: 'Saddhā ca ācārā ca',
+    topicSociety: 'Samājo ca saṃskāro ca',
+    topicHistory: 'Itihāso ca dāyajjā ca',
+    topicIdeas: 'Cintā',
+    servicesEyebrow: 'Dassenaṃ kiṃ karoti',
+    servicesTitle: 'Saccintanaṃ.<br /><em>Parisuddho sandeso.</em>',
+    servicesLede: 'Paṭhamacintanāya ārabhitvā antimatthasodhanāya yāva, samājassa sotabbānaṃ kathānaṃ atthāya nayaṃ, garukāraṃ, lekhanañca demi.',
+    serviceOneTitle: 'Atthasandesa-nayo',
+    serviceOneText: 'Tava sandesassa mūlaṃ passitvā tava kiccassa janānañca hitāya atthasandesa-pakāraṃ karoma.',
+    serviceTwoTitle: 'Lekhane paricariyā',
+    serviceTwoText: 'Desanā, paṇṇalekha, yojanā, jālapatta-lekhanañca sukhumaṃ, saccaṃ, suviññeyyañca karoma.',
+    serviceThreeTitle: 'Vāṇī ca guṇā ca',
+    serviceThreeText: 'Paramparāya patiṭṭhitaṃ, paccuppannaṃ anukūlaṃ, sabbesaṃ pavesaniyañca tava vāṇiṃ nirūpema.',
+    learnMore: 'Bhiyyo olokehi',
+    portraitCaption: 'Atthena,<br /><em>sabbadā</em>',
+    profileEyebrow: 'Sallahadātussa paricayo',
+    profileTitle: 'Sikkhā ca<br /><em>vitthataṃ sotu-samūha-dassanaṃ.</em>',
+    profileRole: 'Dhamma-ajjhena-paṇḍitā &middot; PhD, Mahidol University',
+    profileIntro: 'Mahidol University-to PhD pattā Religious Studies paṇḍitā, Theravāda-Buddhadhammaṃ, Pāḷi-silālekhaṃ, Myanmar-Buddhadhammaṃ, Southeast Asia-ya bhautikadhammañca visesena ajjheti.',
+    profileParagraphOne: 'Tassā pariyesanāya mūlaṃ pāḷi-pāṭhesu, silālekhesu, dhammacariyāsu, samājik-itihāse, Buddhadhamma-saṃghesu ca sambandhe; purātana-Myanmar desañca visesena oloketi.',
+    profileParagraphTwo: 'Sā ajjheti ca sikkhāpeti ca, uttarajjhena-sissānaṃ anusāsati ca; Scopus-niddiṭṭhesu peer-reviewed ajjhenapatṭesu lekhāni ca antararaṭṭhiya-sammelanesu bhāgo ca atthi.',
+    profileParagraphThree: 'Tassā sikkhāpanañca pariyesanā ca Religious Studies, Buddhist Studies, silālekha-vijjā, pāṭha-vijjā, samājik-itihāsañca saṃyojetvā; sissakesu patiṭṭhitaṃ sikkhaṃ, dhammika-itihāsika-mūlesu yoniso manasikārañca garukaroti.',
+    academiaLink: 'Academia.edu paricayo',
+    orcidLink: 'ORCID pariyesanā-lekhaṃ',
+    profileCta: 'Sahakiccaṃ mantayāma',
+    connectHeading: 'Samparkā',
+    lineLabel: 'LINE ID',
+    linkedinLabel: 'LINKEDIN',
+    linkedinValue: 'Paṇḍita-paricayaṃ olokehi',
+    whatsappLabel: 'WHATSAPP',
+    approachEyebrow: 'Sītalakicca-paddhati',
+    approachTitle: 'Sammāvacanānaṃ atthāya<br /><em>okāsaṃ karohi.</em>',
+    stepOneTitle: 'Gambhīraṃ suṇāti',
+    stepOneText: 'Tava samājaṃ, ṭhānaṃ, kiccassa hadayañca—kasmā kiccaṃ karosīti paṭhamaṃ suṇāma.',
+    stepTwoTitle: 'Sandesaṃ rūpeti',
+    stepTwoText: 'Tava atthaṃ purato netuṃ sabbasādhāraṇaṃ, manussānaṃ hitakarañca pakāraṃ vidhāma.',
+    stepThreeTitle: 'Pasādena saṃvibhajati',
+    stepThreeText: 'Patiṭṭhitaṃ, dānasīlaṃ, lokassa sammukhībhavituṃ yuttañca vāṇiṃ labhasi.',
+    contactEyebrow: 'Ārabhāma',
+    contactTitle: 'Atthayutto sandeso<br /><em>idha ārabhati.</em>',
+    contactCopy: 'Tava kiccaṃ thokaṃ kathaya. Mayaṃ yoniso cintetvā anantarakiccaṃ paṭivademi.',
+    footerLine: 'www.dassana.org &middot; Pariyesanā ca atthasandesa-sallahadānañca',
+    backTop: 'Upari gaccha &uarr;'
   }
 };
 
-let currentLanguage = localStorage.getItem('dassana-language') === 'my' ? 'my' : 'en';
+const savedLanguage = localStorage.getItem('dassana-language');
+let currentLanguage = ['en', 'my', 'pi'].includes(savedLanguage) ? savedLanguage : 'en';
 
 function setLanguage(language) {
-  currentLanguage = language === 'my' ? 'my' : 'en';
+  currentLanguage = ['en', 'my', 'pi'].includes(language) ? language : 'en';
   document.documentElement.lang = currentLanguage;
   document.querySelectorAll('[data-i18n]').forEach((element) => {
     const key = element.dataset.i18n;
@@ -183,7 +262,7 @@ if (menuToggle && siteNav) {
   menuToggle.addEventListener('click', () => {
     const isOpen = siteNav.classList.toggle('is-open');
     menuToggle.setAttribute('aria-expanded', String(isOpen));
-    menuToggle.textContent = isOpen ? (currentLanguage === 'my' ? 'ပိတ်ရန်' : 'Close') : translations[currentLanguage].menu;
+    menuToggle.textContent = isOpen ? (translations[currentLanguage].menuClose || 'Close') : translations[currentLanguage].menu;
   });
 
   siteNav.querySelectorAll('a').forEach((link) => {
