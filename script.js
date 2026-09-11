@@ -13,7 +13,7 @@ const translations = {
     navApproach: 'Approach',
     navContact: 'Begin a conversation',
     brandTagline: 'Seeing the Sacred Beyond Belief',
-    brandTaglineMy: 'ယုံကြည်မှုအလွန်',
+    brandTaglineMy: 'ယုံကြည်မှုရဲ့အလွန်',
     heroEyebrow: 'Research &amp; Content Consultancy',
     heroTitle: 'Thoughtful words<br /><em>for sacred spaces.</em>',
     heroIntro: 'Research-led strategy and editorial care for institutions, scholars, and communities communicating about religion, culture, and heritage.',
@@ -89,7 +89,7 @@ const translations = {
     navApproach: 'လုပ်ငန်းဆောင်ရွက်ပုံ',
     navContact: 'ဆွေးနွေးရန် စတင်မည်',
     brandTagline: 'မြင့်မြတ်မှုကို ယုံကြည်ချက်ထက် ကျော်လွန်၍ မြင်ခြင်း',
-    brandTaglineMy: 'ယုံကြည်မှုအလွန်',
+    brandTaglineMy: 'ယုံကြည်မှုရဲ့အလွန်',
     heroEyebrow: 'သုတေသနနှင့် အကြောင်းအရာ အကြံပေးဝန်ဆောင်မှု',
     heroTitle: 'မြင့်မြတ်သောနေရာများအတွက်<br /><em>အဓိပ္ပါယ်ရှိသော စကားလုံးများ။</em>',
     heroIntro: 'ဘာသာရေး၊ ယဉ်ကျေးမှုနှင့် အမွေအနှစ်အကြောင်း ဆက်သွယ်ပြောဆိုနေသော အဖွဲ့အစည်းများ၊ ပညာရှင်များနှင့် လူမှုအသိုင်းအဝိုင်းများအတွက် သုတေသနအခြေပြု မဟာဗျူဟာနှင့် အယ်ဒီတာ့အာရုံစိုက်မှုကို ပေးပါသည်။',
@@ -197,6 +197,57 @@ if (menuToggle && siteNav) {
     });
   });
 }
+
+const motionTargets = [
+  '.hero-copy',
+  '.hero-art',
+  '.belief-strip p',
+  '.lens-heading',
+  '.lens-card',
+  '.topics-heading',
+  '.topic-item',
+  '.section-heading',
+  '.service-card',
+  '.about-portrait',
+  '.about-copy',
+  '.approach-heading',
+  '.process-step',
+  '.contact-inner',
+  '.site-footer > *'
+].flatMap((selector) => Array.from(document.querySelectorAll(selector)));
+
+const uniqueMotionTargets = Array.from(new Set(motionTargets));
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if (!reducedMotion && 'IntersectionObserver' in window) {
+  document.documentElement.classList.add('motion-enabled');
+  uniqueMotionTargets.forEach((element, index) => {
+    element.classList.add('reveal-on-scroll');
+    element.style.setProperty('--reveal-delay', `${Math.min(index % 4, 3) * 85}ms`);
+  });
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.14, rootMargin: '0px 0px -7% 0px' });
+
+  uniqueMotionTargets.forEach((element) => revealObserver.observe(element));
+} else {
+  uniqueMotionTargets.forEach((element) => element.classList.add('is-visible'));
+}
+
+document.querySelectorAll('a, button').forEach((element) => {
+  element.addEventListener('click', () => {
+    element.classList.remove('is-clicking');
+    void element.offsetWidth;
+    element.classList.add('is-clicking');
+    window.setTimeout(() => element.classList.remove('is-clicking'), 380);
+  });
+});
 
 document.getElementById('year').textContent = new Date().getFullYear();
 setLanguage(currentLanguage);
